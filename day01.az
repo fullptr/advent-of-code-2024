@@ -1,0 +1,27 @@
+let std := @import("lib/std.az");
+
+arena a;
+let file := std.read_file("examples/aoc2024-1-input.txt", a&);
+var l := std.vector!(i64).create(a&);
+var r := std.vector!(i64).create(a&);
+var counts := [0; 1000u];
+
+for line in std.split(file, "\r\n") {
+    var splitter := std.split(line, "   ");
+    l.push(std.str_to_i64(splitter.next()));
+    r.push(std.str_to_i64(splitter.next()));
+
+    var count := counts[r.back() as u64]&;
+    count@ = count@ + 1;
+}
+
+std.sort(l.to_span());
+std.sort(r.to_span());
+
+var part1 := 0;
+var part2 := 0;
+for curr in std.zip(l.to_span(), r.to_span()) {
+    part1 = part1 + std.abs(curr.left@ - curr.right@);
+    part2 = part2 + counts[curr.left@ as u64] * curr.left@;
+}
+print("{}\n{}\n", part1, part2);
