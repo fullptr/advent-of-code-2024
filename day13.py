@@ -1,7 +1,7 @@
 import util, parse
 def solve(a, b, c, d, e, f):
     det, x, y = a*d-c*b, d*e-c*f, a*f-b*e
-    return 3 * x // det + y // det if x % det == 0 and y % det == 0 else 0
+    return 3 * x//det + y//det if x % det == y % det == 0 else 0
 
 count1 = count2 = 0
 pattern = "Button A: X+{:d}, Y+{:d}\nButton B: X+{:d}, Y+{:d}\nPrize: X={:d}, Y={:d}"
