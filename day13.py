@@ -1,5 +1,4 @@
-import util
-import parse
+import util, parse
 
 def solve(a, b, c, d, e, f):
     det = a*d-c*b
