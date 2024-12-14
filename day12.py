@@ -39,9 +39,8 @@ def calc_circumferance(area):
     return len(get_fences(area))
 
 def calc_edges(area):
-    fences = collections.defaultdict(list)
-    
     # Collapse horizonally and vertically
+    fences = collections.defaultdict(list)
     for x, y, d in get_fences(area):
         if d == "H":
             fences[y, d].append(x)
@@ -54,8 +53,7 @@ def calc_edges(area):
     fence_count = 0
     for (coord, direction), vals in fences.items():
         m = verticals if direction == "V" else horizontals
-        lo = None
-        hi = None
+        lo = hi = None
         for x in sorted(vals):
             if lo is None:
                 lo = x
