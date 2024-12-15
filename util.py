@@ -17,3 +17,6 @@ class Vec2:
     
     def __mul__(self, scalar: int):
         return Vec2(self.x * scalar, self.y * scalar)
+    
+    def mag2(self):
+        return self.x ** 2 + self.y ** 2
