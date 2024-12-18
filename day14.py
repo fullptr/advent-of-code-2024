@@ -71,5 +71,6 @@ def part2():
         l = longest_contiguous(robots, w, h)
         if l > 20: # guessing if there's a line of +20 contiguous robots, its the picture
             print(i+1, longest_contiguous(robots, w, h))
-    
+
+print(part1()) 
 part2()
